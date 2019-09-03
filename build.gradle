@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+}
+
+group 'at.helpch'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.piggypiglet.me/repository/maven-releases/'
+
+        content {
+            includeGroup 'me.piggypiglet'
+        }
+    }
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    compile 'me.piggypiglet:framework-bukkit:+'
+    compileOnly 'org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT'
+}
+
+shadowJar {
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    relocate 'me.piggypiglet.framework', 'at.helpch.bukkitforcedhosts.framework'
+}
+
+compileJava.options.encoding = 'UTF-8'
