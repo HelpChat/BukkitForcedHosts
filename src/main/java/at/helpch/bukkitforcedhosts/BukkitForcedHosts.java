@@ -1,6 +1,6 @@
 package at.helpch.bukkitforcedhosts;
 
-import at.helpch.bukkitforcedhosts.annotations.Locations;
+import at.helpch.bukkitforcedhosts.annotations.Hosts;
 import me.piggypiglet.framework.Framework;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,7 +15,7 @@ public final class BukkitForcedHosts extends JavaPlugin {
                 .main(JavaPlugin.class, this)
                 .commandPrefix("bfh")
                 .pckg("at.helpch.bukkitforcedhosts")
-                .file(true, "locations", "/locations.yml", getDataFolder() + "/locations.yml", Locations.class)
+                .file(true, "hosts", "/hosts.yml", getDataFolder() + "/hosts.yml", Hosts.class)
                 .build()
                 .init();
     }

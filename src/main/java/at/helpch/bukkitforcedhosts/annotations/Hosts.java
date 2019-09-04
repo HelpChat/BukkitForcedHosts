@@ -13,5 +13,5 @@ import java.lang.annotation.Target;
 // ------------------------------
 @BindingAnnotation
 @Target(ElementType.FIELD) @Retention(RetentionPolicy.RUNTIME)
-public @interface Locations {
+public @interface Hosts {
 }
