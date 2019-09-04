@@ -44,6 +44,7 @@ public final class JoinEvent implements Listener {
 
         if (commandsToBeRan.containsKey(uuid)) {
             commandsToBeRan.get(uuid).forEach(c -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c));
+            commandsToBeRan.remove(uuid);
         }
     }
 }
