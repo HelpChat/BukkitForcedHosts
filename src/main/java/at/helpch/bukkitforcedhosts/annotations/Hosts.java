@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 // https://www.piggypiglet.me
 // ------------------------------
 @BindingAnnotation
-@Target(ElementType.FIELD) @Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.RUNTIME) @Target(ElementType.FIELD)
 public @interface Hosts {
 }

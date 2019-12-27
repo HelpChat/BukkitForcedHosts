@@ -1,0 +1,4 @@
+commands:
+  reload:
+    error: "&7Something went wrong while reloading the plugin."
+    success: "&7Successfully reloaded the plugin."

@@ -29,10 +29,10 @@ public final class JoinEvent implements Listener {
 
     @EventHandler
     public void onPlayerLogin(PlayerLoginEvent e) {
-        List<String> locations = this.locations.getStringList(e.getHostname().split(":")[0].toLowerCase().replace(".", "-"));
+        final List<String> commands = this.locations.getStringList(e.getHostname().split(":")[0].toLowerCase().replace(".", "-"));
 
-        if (!locations.isEmpty()) {
-            commandsToBeRan.put(e.getPlayer().getUniqueId(), locations.stream()
+        if (commands != null && !commands.isEmpty()) {
+            commandsToBeRan.put(e.getPlayer().getUniqueId(), commands.stream()
                     .map(c -> String.format(c, e.getPlayer().getName()))
                     .collect(Collectors.toSet()));
         }

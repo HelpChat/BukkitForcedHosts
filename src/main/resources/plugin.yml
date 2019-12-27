@@ -1,7 +1,7 @@
 main: at.helpch.bukkitforcedhosts.BukkitForcedHosts
 version: 1.0.0
-api-version: "1.14"
-author: HelpChat
+api-version: "1.13"
+author: PiggyPiglet
 website: https://helpch.at
 name: BukkitForcedHosts
 prefix: "BFH"
