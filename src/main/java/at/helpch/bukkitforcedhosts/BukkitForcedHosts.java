@@ -1,8 +1,10 @@
 package at.helpch.bukkitforcedhosts;
 
 import at.helpch.bukkitforcedhosts.annotations.Hosts;
+import at.helpch.bukkitforcedhosts.registerables.BStatsRegisterable;
 import me.piggypiglet.framework.Framework;
 import me.piggypiglet.framework.utils.annotations.files.Lang;
+import me.piggypiglet.framework.utils.annotations.registerable.RegisterableData;
 import org.bukkit.plugin.java.JavaPlugin;
 
 // ------------------------------
@@ -16,6 +18,7 @@ public final class BukkitForcedHosts extends JavaPlugin {
                 .main(JavaPlugin.class, this)
                 .commandPrefixes("bfh", "bukkitforcedhosts")
                 .pckg("at.helpch.bukkitforcedhosts")
+                .startup(new RegisterableData(BStatsRegisterable.class))
                 .fileDir(getDataFolder().getPath())
                 .file(true, "hosts", "/hosts.yml", "hosts.yml", Hosts.class)
                 .file(true, "lang", "/lang.yml", "lang.yml", Lang.class)
