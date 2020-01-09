@@ -8,7 +8,9 @@ import me.piggypiglet.framework.lang.LangEnum;
 // ------------------------------
 public enum Lang implements LangEnum {
     RELOAD_ERROR("commands.reload.error"),
-    RELOAD_SUCCESS("commands.reload.success");
+    RELOAD_SUCCESS("commands.reload.success"),
+
+    NO_AUTHME("kick.no_authme");
 
     private final String path;
 

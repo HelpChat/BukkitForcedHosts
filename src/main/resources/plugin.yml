@@ -5,3 +5,4 @@ author: PiggyPiglet
 website: https://helpch.at
 name: BukkitForcedHosts
 prefix: "BFH"
+soft-depend: ["AuthMe"]

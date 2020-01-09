@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'at.helpch'
-version '1.0.3'
+version '1.1.0'
 sourceCompatibility = 1.8
 
 repositories {
@@ -29,8 +29,9 @@ repositories {
 }
 
 dependencies {
-    compile 'me.piggypiglet:framework-bukkit:1.8.14'
+    compile 'me.piggypiglet:framework-bukkit:1.8.21'
     compile 'org.bstats:bstats-bukkit:1.5'
+    compileOnly 'fr.xephi:authme:5.6.0-SNAPSHOT'
     compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
 }
 
@@ -53,7 +54,7 @@ shadowJar {
     }
 
     relocate 'org.bstats', 'at.helpch.bukkitforcedhosts.bstats'
-    relocate 'me.piggypiglet.framework', 'at.helpch.bukkitforcedhosts.framework'
+//    relocate 'me.piggypiglet.framework', 'at.helpch.bukkitforcedhosts.framework'
 }
 
 clean {

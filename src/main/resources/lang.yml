@@ -1,4 +1,7 @@
+config-version: 1
 commands:
   reload:
     error: "&7Something went wrong while reloading the plugin."
     success: "&7Successfully reloaded the plugin."
+kick:
+  no_authme: "AuthMe is enabled for this domain, but AuthMe isn't present on the server."

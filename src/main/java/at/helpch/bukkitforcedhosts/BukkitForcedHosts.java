@@ -2,14 +2,13 @@ package at.helpch.bukkitforcedhosts;
 
 import at.helpch.bukkitforcedhosts.annotations.Hosts;
 import at.helpch.bukkitforcedhosts.registerables.BStatsRegisterable;
+import at.helpch.bukkitforcedhosts.registerables.hooks.authme.AuthMeBooleanRegisterable;
+import at.helpch.bukkitforcedhosts.registerables.hooks.authme.AuthMeEventRegisterable;
 import me.piggypiglet.framework.Framework;
-import me.piggypiglet.framework.utils.ReflectionUtils;
+import me.piggypiglet.framework.bootstrap.BootPriority;
 import me.piggypiglet.framework.utils.annotations.files.Lang;
 import me.piggypiglet.framework.utils.annotations.registerable.RegisterableData;
-import org.bukkit.plugin.PluginLoader;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.lang.reflect.Method;
 
 // ------------------------------
 // Copyright (c) PiggyPiglet 2019
@@ -21,8 +20,9 @@ public final class BukkitForcedHosts extends JavaPlugin {
         Framework.builder()
                 .main(JavaPlugin.class, this)
                 .commandPrefixes("bfh", "bukkitforcedhosts")
-                .pckg("at.helpch.bukkitforcedhosts")
-                .startup(new RegisterableData(BStatsRegisterable.class))
+                .pckg("at.helpch.bukkitforcedhosts", "at.helpch.bukkitforcedhosts.events.hooks")
+                .startup(new RegisterableData(BStatsRegisterable.class), new RegisterableData(AuthMeBooleanRegisterable.class),
+                        new RegisterableData(AuthMeEventRegisterable.class, BootPriority.AFTER_ADDONS))
                 .fileDir(getDataFolder().getPath())
                 .file(true, "hosts", "/hosts.yml", "hosts.yml", Hosts.class)
                 .file(true, "lang", "/lang.yml", "lang.yml", Lang.class)
