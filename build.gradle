@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'at.helpch'
-version '1.1.0'
+version '1.1.1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -54,7 +54,7 @@ shadowJar {
     }
 
     relocate 'org.bstats', 'at.helpch.bukkitforcedhosts.bstats'
-//    relocate 'me.piggypiglet.framework', 'at.helpch.bukkitforcedhosts.framework'
+    relocate 'me.piggypiglet.framework', 'at.helpch.bukkitforcedhosts.framework'
 }
 
 clean {
