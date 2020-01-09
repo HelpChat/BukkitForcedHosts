@@ -6,11 +6,21 @@ BFH is a simple plugin that allows you to configure commands that will be ran on
 ![Configuration](https://cdn.piggypiglet.me/bfh/config.png)<br/>
 The config will generate on first start, in a folder called BukkitForcedHosts, called hosts.yml. Inside, the format is extremely simple.
 ```yaml
+config-version: 1
 example-com:
-  - "tellraw %s {\"text\":\"Hello\"}"
+  hooks:
+    - "authme"
+  commands:
+    - "tellraw %s {\"text\":\"Hello\"}"
 ```
-example-com is your domain, the dash, automatically gets replaced with a . at runtime. The reason it doesn't use periods in the config, is because . is the path separator in bukkit.<br/>
-The element accepts a list of strings, i.e. your commands. In each, %s will be replaced with the player name. If you use the player name more than once, instead reference it via %1$s after the first occurrence. For example:<br/>
+
+`config-version` is purely metadata for the plugin. Do not modify this manually.
+
+`example-com` is your domain, the dash, automatically gets replaced with a `.` at runtime. The reason it doesn't use periods in the config, is because `.` is the path separator in bukkit.
+
+The `hooks` key accepts a list of hooks you want enabled on your domain. Currently, the only available hook is authme. If you don't want any hooks, completely remove the hooks section from the domain. The authme hook will delay the domain's command execution till a login has been successful through authme for that user. If the hook is enabled but authme isn't on the server, any user who joins with the domain will be kicked immediately.
+
+The `commands` key accepts a list of strings, i.e. your commands. In each, `%s` will be replaced with the player name. If you use the player name more than once, instead reference it via `%1$s` after the first occurrence. For example:
 `tellraw %s {\"text\":\"Hello %1$s\"}`
 
 ![Commands](https://cdn.piggypiglet.me/bfh/commands.png)<br/>
