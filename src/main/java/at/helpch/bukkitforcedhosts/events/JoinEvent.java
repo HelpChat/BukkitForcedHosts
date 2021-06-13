@@ -31,7 +31,13 @@ public final class JoinEvent implements Listener {
 
     @EventHandler
     public void onPlayerLogin(PlayerLoginEvent e) {
-        final FileConfiguration spawn = locations.getConfigSection(e.getHostname().split(":")[0].toLowerCase().replace('.', '-'), null);
+        String host = e.getHostname().split(":")[0].toLowerCase();
+
+        if (host.endsWith(".")) {
+            host = host.substring(0, host.length() - 1);
+        }
+
+        final FileConfiguration spawn = locations.getConfigSection(host.replace('.', '-'), null);
 
         if (spawn == null) return;
 
